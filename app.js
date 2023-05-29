@@ -19,7 +19,6 @@ inputFields.forEach((field, index) => {
   } else if (index === 4) {
     field.id = "CVC";
   }
-  window[field.id] = field;
 });
 
 // handleSubmit function
@@ -35,7 +34,8 @@ const handleSubmit = (e) => {
       errorParagraph.remove();
     }
   });
-  if (formValidation(inputFields, form) === true) {
+  const isValid = formValidation(inputFields, form);
+  if (isValid === true) {
     success.classList.remove("hidden");
     form.classList.add("hidden");
   }
@@ -51,8 +51,8 @@ const handleContinue = (e) => {
 // event listeners
 submitBtn.addEventListener("click", handleSubmit);
 continueBtn.addEventListener("click", handleContinue);
-document.addEventListener("keydown", (e) => {
-  if (e.key === "enter") {
-    submitBtn.click();
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   if (e.key === "enter") {
+//     submitBtn.click();
+//   }
+// });
