@@ -86,20 +86,24 @@
             <div class="expiration flex flex-col flex-1 gap-2">
               <label for="expiration-inputs">Exp. Date (MM/YY)</label>
               <div class="expiration-inputs flex gap-2">
-                <input
-                  type="text"
-                  id="month"
-                  name="month"
-                  placeholder="MM"
-                  class="w-full border border-1 border-neutralLightGrayishViolet rounded-lg p-2 focus:outline-none focus:border-primaryLinearGradient"
-                />
-                <input
-                  type="text"
-                  id="year"
-                  name="year"
-                  placeholder="YY"
-                  class="w-full border border-1 border-neutralLightGrayishViolet rounded-lg p-2 focus:outline-none focus:border-primaryLinearGradient"
-                />
+                <div class="month-input-container flex flex-col">
+                  <input
+                    type="text"
+                    id="month"
+                    name="month"
+                    placeholder="MM"
+                    class="w-full border border-1 border-neutralLightGrayishViolet rounded-lg p-2 focus:outline-none focus:border-primaryLinearGradient"
+                  />
+                </div>
+                <div class="year-input-container flex flex-col">
+                  <input
+                    type="text"
+                    id="year"
+                    name="year"
+                    placeholder="YY"
+                    class="w-full border border-1 border-neutralLightGrayishViolet rounded-lg p-2 focus:outline-none focus:border-primaryLinearGradient"
+                  />
+                </div>
               </div>
             </div>
             <div class="CVC-input flex flex-col flex-1 gap-2">
@@ -134,7 +138,7 @@
             We've added your card details
           </p>
           <button
-            class="confirm-btn w-full rounded-xl text-neutralWhite bg-neutralVeryDarkViolet p-4 hover:bg-neutralDarkGrayishViolet transition-colors ease-in-out mt-4"
+            class="continue-btn w-full rounded-xl text-neutralWhite bg-neutralVeryDarkViolet p-4 hover:bg-neutralDarkGrayishViolet transition-colors ease-in-out mt-4"
           >
             Continue
           </button>
@@ -151,5 +155,8 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Pierre Fraisse</a>.
     </div>
+    <script type="module" src="./utils/displayError.js"></script>
+    <script type="module" src="./utils/formValidation.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
