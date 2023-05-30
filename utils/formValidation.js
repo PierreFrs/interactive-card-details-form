@@ -20,31 +20,39 @@ const formValidation = (inputFields, form) => {
   }
   console.log(fieldValues);
 
-  var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-  var CVCVal = /^[0-9]{3}$/;
+  const cardNo = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  const monthNo = /^(0[1-9]|1[0-2])$/;
+  const yearNo =
+    /^(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$/;
+  const CVCVal = /^[0-9]{3}$/;
 
-  if (!fieldValues.number.match(cardno) && fieldValues.number !== "") {
+  if (
+    (isNaN(fieldValues.number) || !fieldValues.number.match(cardNo)) &&
+    fieldValues.number !== ""
+  ) {
     displayError("number", "Wrong format, numbers only");
     validate = false;
-    return validate;
-  } else if (
-    (fieldValues.month < 1 || fieldValues.month > 12) &&
+  }
+  if (
+    (isNaN(fieldValues.month) || !fieldValues.month.match(monthNo)) &&
     fieldValues.month !== ""
   ) {
     displayError("month", "Must be a valid month");
     validate = false;
-    return validate;
-  } else if (
-    (fieldValues.year < 0 || fieldValues.year > 99) &&
+  }
+  if (
+    (isNaN(fieldValues.year) || !fieldValues.year.match(yearNo)) &&
     fieldValues.year !== ""
   ) {
     displayError("year", "Must be a valid year");
     validate = false;
-    return validate;
-  } else if (!fieldValues.CVC.match(CVCVal) && fieldValues.CVC !== "") {
+  }
+  if (
+    (isNaN(fieldValues.CVC) || !fieldValues.CVC.match(CVCVal)) &&
+    fieldValues.CVC !== ""
+  ) {
     displayError("CVC", "Must be a three digit value");
     validate = false;
-    return validate;
   }
   return validate;
 };
