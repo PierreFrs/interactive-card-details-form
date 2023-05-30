@@ -55,6 +55,10 @@ const handleContinue = (e) => {
   success.classList.add("hidden");
   form.classList.remove("hidden");
 
+  inputFields.forEach((input) => {
+    input.value = "";
+  });
+
   // Set focus on the input field with id 'name'
   const nameInput = document.getElementById("name");
   nameInput.focus();

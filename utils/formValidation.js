@@ -26,11 +26,11 @@ const formValidation = (inputFields, form) => {
     /^(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$/;
   const CVCVal = /^[0-9]{3}$/;
 
-  if (
-    (isNaN(fieldValues.number) || !fieldValues.number.match(cardNo)) &&
-    fieldValues.number !== ""
-  ) {
+  if (isNaN(fieldValues.number)) {
     displayError("number", "Wrong format, numbers only");
+    validate = false;
+  } else if (fieldValues.number.length != 16) {
+    displayError("number", "Wrong format, must be 16 digits");
     validate = false;
   }
   if (
