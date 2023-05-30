@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.error-paragraph {
+  color: red;
+  font-size: 0.8rem;
+}

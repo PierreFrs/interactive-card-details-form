@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./*.html"],
+  safelist: ["text-xs", "text-red-700", "focus:border-primaryLinearGradient"],
   theme: {
     colors: {
       primaryLinearGradient:

@@ -1,23 +1,24 @@
 import formValidation from "./utils/formValidation.js";
+import displayInfos from "./utils/displayInfos.js";
+import resetInfos from "./utils/resetInfos.js";
 
 const inputFields = document.querySelectorAll("input");
+const displayFields = document.querySelectorAll(".displayField");
 const submitBtn = document.querySelector(".confirm-btn");
 const continueBtn = document.querySelector(".continue-btn");
 const form = document.querySelector(".form");
 const success = document.querySelector(".success");
 
-// add id to input-fields
-inputFields.forEach((field, index) => {
+// add id to display fields
+displayFields.forEach((field, index) => {
   if (index === 0) {
-    field.id = "name";
+    field.id = "displayCVC";
   } else if (index === 1) {
-    field.id = "number";
+    field.id = "displayNumber";
   } else if (index === 2) {
-    field.id = "month";
+    field.id = "displayName";
   } else if (index === 3) {
-    field.id = "year";
-  } else if (index === 4) {
-    field.id = "CVC";
+    field.id = "displayDate";
   }
 });
 
@@ -41,13 +42,10 @@ const handleSubmit = (e) => {
     success.classList.remove("hidden");
     form.classList.add("hidden");
   }
+
+  // invoques the function to display the infos on the credit card
+  displayInfos(form, displayFields);
 };
-
-// display the infos on the cards
-const displayInfos = () => {};
-
-// reset infos on the cards
-const resetInfos = () => {};
 
 // handlecontinue
 const handleContinue = (e) => {
@@ -62,6 +60,8 @@ const handleContinue = (e) => {
   // Set focus on the input field with id 'name'
   const nameInput = document.getElementById("name");
   nameInput.focus();
+
+  resetInfos(displayFields);
 };
 
 // event listeners

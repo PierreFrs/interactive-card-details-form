@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./error-paragraph.css" />
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
   <body
@@ -35,7 +36,7 @@
           class="credit-card-back bg-[url('/images/bg-card-back.png')] bg-center bg-cover w-72 sm:w-[440px] h-40 sm:h-[245px] rounded-lg z-10 absolute top-12 sm:top-1/2 left-16 sm:left-1/2 shadow-2xl"
         >
           <p
-            class="secret-number relative text-neutralWhite text-xs top-1/2 left-56"
+            class="secret-number displayField relative text-neutralWhite text-xs top-1/2 left-56"
           >
             000
           </p>
@@ -48,10 +49,12 @@
             alt="card logo"
             class="card-logo w-14 mb-10"
           />
-          <p class="card-number mb-4">1234 5678 9123 0000</p>
+          <p class="card-number displayField mb-4">1234 5678 9123 0000</p>
           <div class="bottom-info flex justify-between">
-            <p class="card-owner text-xs uppercase">Jane Appleseed</p>
-            <p class="expiration-date text-xs">00/00</p>
+            <p class="card-owner displayField text-xs uppercase">
+              Jane Appleseed
+            </p>
+            <p class="expiration-date displayField text-xs">00/00</p>
           </div>
         </div>
       </div>
@@ -157,6 +160,8 @@
     </div>
     <script type="module" src="./utils/displayError.js"></script>
     <script type="module" src="./utils/formValidation.js"></script>
+    <script type="module" src="./utils/displayInfos.js"></script>
+    <script type="module" src="./utils/resetInfos.js"></script>
     <script type="module" src="./app.js"></script>
   </body>
 </html>

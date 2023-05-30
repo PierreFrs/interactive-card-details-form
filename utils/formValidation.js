@@ -3,6 +3,22 @@ import displayError from "./displayError.js";
 // form validation function
 const formValidation = (inputFields, form) => {
   let validate = true;
+
+  // add id to input-fields
+  inputFields.forEach((field, index) => {
+    if (index === 0) {
+      field.id = "name";
+    } else if (index === 1) {
+      field.id = "number";
+    } else if (index === 2) {
+      field.id = "month";
+    } else if (index === 3) {
+      field.id = "year";
+    } else if (index === 4) {
+      field.id = "CVC";
+    }
+  });
+
   // check if fields are empty
   inputFields.forEach((field) => {
     if (field.value === "") {
@@ -18,9 +34,8 @@ const formValidation = (inputFields, form) => {
   for (const [key, value] of formData.entries()) {
     fieldValues[key] = value.trim();
   }
-  console.log(fieldValues);
 
-  const cardNo = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  // checks the validity of the inputs
   const monthNo = /^(0[1-9]|1[0-2])$/;
   const yearNo =
     /^(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$/;
