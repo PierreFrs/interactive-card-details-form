@@ -13,9 +13,9 @@ inputFields.forEach((field, index) => {
   } else if (index === 1) {
     field.id = "number";
   } else if (index === 2) {
-    field.id = "day";
-  } else if (index === 3) {
     field.id = "month";
+  } else if (index === 3) {
+    field.id = "year";
   } else if (index === 4) {
     field.id = "CVC";
   }
@@ -24,6 +24,14 @@ inputFields.forEach((field, index) => {
 // handleSubmit function
 const handleSubmit = (e) => {
   e.preventDefault();
+  console.log(inputFields);
+
+  const isValid = formValidation(inputFields, form);
+  if (isValid === true) {
+    success.classList.remove("hidden");
+    form.classList.add("hidden");
+  }
+
   //   reset errors and values
   inputFields.forEach((field) => {
     field.classList.add("border-neutralLightGrayishViolet");
@@ -33,19 +41,25 @@ const handleSubmit = (e) => {
     if (errorParagraph) {
       errorParagraph.remove();
     }
+    field.value = "";
   });
-  const isValid = formValidation(inputFields, form);
-  if (isValid === true) {
-    success.classList.remove("hidden");
-    form.classList.add("hidden");
-  }
 };
+
+// display the infos on the cards
+const displayInfos = () => {};
+
+// reset infos on the cards
+const resetInfos = () => {};
 
 // handlecontinue
 const handleContinue = (e) => {
   e.preventDefault();
   success.classList.add("hidden");
   form.classList.remove("hidden");
+
+  // Set focus on the input field with id 'name'
+  const nameInput = document.getElementById("name");
+  nameInput.focus();
 };
 
 // event listeners
