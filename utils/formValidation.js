@@ -29,7 +29,7 @@ const formValidation = (inputFields, form) => {
   if (isNaN(fieldValues.number)) {
     displayError("number", "Wrong format, numbers only");
     validate = false;
-  } else if (fieldValues.number.length != 16) {
+  } else if (fieldValues.number.length != 16 && fieldValues.month !== "") {
     displayError("number", "Wrong format, must be 16 digits");
     validate = false;
   }

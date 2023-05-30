@@ -5,7 +5,8 @@ const displayError = (inputId, text) => {
   input.classList.remove("focus:border-primaryLinearGradient");
   input.classList.add("border-primaryRed");
   const errorParagraph = document.createElement("p");
-  errorParagraph.classList.add("text-primaryRed", "text-xs");
+  errorParagraph.classList.add("!text-primaryRed");
+  errorParagraph.classList.add("!text-xs");
   errorParagraph.textContent = text;
   input.parentElement.appendChild(errorParagraph);
 };
