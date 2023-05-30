@@ -24,13 +24,6 @@ inputFields.forEach((field, index) => {
 // handleSubmit function
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log(inputFields);
-
-  const isValid = formValidation(inputFields, form);
-  if (isValid === true) {
-    success.classList.remove("hidden");
-    form.classList.add("hidden");
-  }
 
   //   reset errors and values
   inputFields.forEach((field) => {
@@ -41,8 +34,13 @@ const handleSubmit = (e) => {
     if (errorParagraph) {
       errorParagraph.remove();
     }
-    field.value = "";
   });
+
+  const isValid = formValidation(inputFields, form);
+  if (isValid === true) {
+    success.classList.remove("hidden");
+    form.classList.add("hidden");
+  }
 };
 
 // display the infos on the cards
@@ -65,8 +63,13 @@ const handleContinue = (e) => {
 // event listeners
 submitBtn.addEventListener("click", handleSubmit);
 continueBtn.addEventListener("click", handleContinue);
-// document.addEventListener("keydown", (e) => {
-//   if (e.key === "enter") {
-//     submitBtn.click();
-//   }
-// });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (success.classList.contains("hidden")) {
+      submitBtn.click();
+    } else {
+      continueBtn.click();
+    }
+  }
+});
